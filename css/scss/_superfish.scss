@@ -1,0 +1,43 @@
+/*** ESSENTIAL STYLES ***/
+
+.sf-menu {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  * {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  li {
+    position: relative;
+    &:hover >   {
+      ul {
+        display: block;
+      }
+    }
+    &.sfHover >   {
+      ul {
+        display: block;
+      }
+    }
+  }
+  ul {
+    position: absolute;
+    display: none;
+    top: 100%;
+    left: 0;
+    z-index: 99;
+    ul {
+      top: 0;
+      left: 100%;
+    }
+  }
+  a {
+    display: block;
+    position: relative;
+  }
+  > li {
+    float: left;
+  }
+}

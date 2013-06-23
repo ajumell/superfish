@@ -1,0 +1,121 @@
+@import "compass/css3";
+@import "_superfish";
+
+/* Demo Style */
+//-------------------------
+$white: #fff;
+$border_color: #dfeeff;
+$text_color: #13a;
+$li_bg: #bdd2ff;
+$sub_menu_li_bg: #aabde6;
+$second_sub_li_bg: #db5343;
+$hover_li_bg: #cfdeff;
+//--------------------------
+
+.sf-menu {
+  float: left;
+  margin-bottom: 1em;
+
+  li {
+
+    background: $li_bg;
+    white-space: nowrap;
+    *white-space: normal;
+    @include transition(background .2s);
+
+    &:hover, &.sfHover {
+      background: $hover_li_bg;
+      @include transition(none);
+    }
+
+    a {
+      border-left: 1px solid $white;
+      border-top: 1px solid $border_color;
+      padding: .75em 1em;
+      text-decoration: none;
+      zoom: 1;
+      color: $text_color;
+    }
+
+    /* Sub Menu Container */
+    ul {
+      @include box-shadow(2px 2px 6px rgba(0, 0, 0, 0.5));
+      min-width: 12em;
+      *width: 12em;
+      li {
+        background: $sub_menu_li_bg;
+
+        /* Second level sub menu */
+        ul {
+          li {
+            background: $second_sub_li_bg;
+          }
+        }
+      }
+    }
+  }
+}
+
+.sf-arrows {
+  .sf-with-ul {
+    padding-right: 2.5em;
+    *padding-right: 1em;
+    &:after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      right: 1em;
+      margin-top: -3px;
+      height: 0;
+      width: 0;
+      border: 5px solid transparent;
+      border-top-color: $border_color;
+    }
+  }
+
+  > {
+    li {
+      > .sf-with-ul {
+        &:focus:after {
+          border-top-color: $white;
+        }
+      }
+      &:hover > {
+        .sf-with-ul:after {
+          border-top-color: $white;
+        }
+      }
+    }
+    .sfHover > {
+      .sf-with-ul:after {
+        border-top-color: $white;
+      }
+    }
+  }
+  ul {
+    li {
+      & > .sf-with-ul {
+        &:focus:after {
+          border-left-color: $white;
+        }
+      }
+      &:hover >                          {
+        .sf-with-ul:after {
+          border-left-color: $white;
+        }
+      }
+    }
+    .sf-with-ul:after {
+      margin-top: -5px;
+      margin-right: -3px;
+      border-color: transparent;
+      border-left-color: $border_color;
+    }
+
+    .sfHover >                          {
+      .sf-with-ul:after {
+        border-left-color: white;
+      }
+    }
+  }
+}
